@@ -1,5 +1,14 @@
 .formularioDiv {
     background: rgb(255, 255, 255);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 0px 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.644);
+    padding: 20px 20px;
+}
+.formularioSubDiv{
+    display: flex;
+    justify-content: space-around;
+}
+.colorForm{
+    border: 1px solid black;
+    background: blue;
+    width: 10%;
 }

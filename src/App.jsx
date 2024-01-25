@@ -5,9 +5,11 @@ import FormularioColor from './components/FormularioColor';
 
 function App() {
   return (
-    <Container className='my-5'>
-      <FormularioColor></FormularioColor>
-    </Container>
+    <section className='principal'>
+      <Container className='py-5'>
+        <FormularioColor></FormularioColor>
+      </Container>
+    </section>
   )
 }
 
