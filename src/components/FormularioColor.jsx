@@ -6,12 +6,15 @@ import ListaColores from "./ListaColores"
 
 const FormularioColor = () => {
     const [color, setColor] = useState("")
-    const [colores, setColores] = useState([])
+    const [colores, setColores] = useState(JSON.parse(localStorage.getItem("colorKey")) || [])
     const handlerSubmit = (e) => {
         e.preventDefault()
         setColores([...colores, {id: uuidv4(), nombre: color}])
         setColor("")
     }
+    useEffect(()=>{
+        localStorage.setItem("colorKey", JSON.stringify(colores))
+    },[colores])
     const borrarColor = (id) =>{
         const coloresFiltrados = colores.filter((color)=> color.id !== id)
         setColores(coloresFiltrados)
