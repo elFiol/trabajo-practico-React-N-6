@@ -1,5 +1,6 @@
 import { Form, Button } from "react-bootstrap";
 import "./Principal.css"
+import { v4 as uuidv4 } from 'uuid';
 import { useEffect, useState } from "react";
 import ListaColores from "./ListaColores"
 
@@ -8,8 +9,12 @@ const FormularioColor = () => {
     const [colores, setColores] = useState([])
     const handlerSubmit = (e) => {
         e.preventDefault()
-        setColores([...colores, {id: colores.length, nombre: color}])
+        setColores([...colores, {id: uuidv4(), nombre: color}])
         setColor("")
+    }
+    const borrarColor = (id) =>{
+        const coloresFiltrados = colores.filter((color)=> color.id !== id)
+        setColores(coloresFiltrados)
     }
     return (
         <article>
@@ -25,7 +30,7 @@ const FormularioColor = () => {
                     </Form>
                 </div>
             </div>
-            <ListaColores colores={colores}></ListaColores>
+            <ListaColores colores={colores} borrarColor={borrarColor}></ListaColores>
         </article>
     );
 };
